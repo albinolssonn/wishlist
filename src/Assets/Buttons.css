@@ -1,0 +1,164 @@
+#registerBtn{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-radius: 50px;
+    border-style: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    background: linear-gradient(0deg, rgba(211,104,104,1) 0%, rgba(249,177,111,1) 100%);
+    color: white;
+}
+
+#registerBtn:hover{
+    cursor:pointer; 
+}
+
+#loginBtn{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-radius: 50px;
+    border-style: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    background: linear-gradient(0deg, rgba(104,179,211,1) 0%, rgba(126,207,88,1) 100%);
+    color: white;
+}
+
+#loginBtn:hover{
+    cursor:pointer; 
+}
+
+.openModalBtn{
+    width:50px;
+    height:50px;
+    text-align:center; 
+    border-radius:50px;
+    position:absolute;
+    right:5px;
+    margin-top:4px;
+    transition: 0.2s ease-in;
+}
+
+.openModalBtn:hover{
+    background-color: rgb(204, 233, 203);
+    cursor: pointer;
+}
+
+.editWLNameBtn {
+    width:35px;
+    height:35px;
+    text-align:center; 
+    border-radius:50px;
+    transition: 0.2s ease-in;
+}
+
+.editWLNameBtn:hover{
+    background-color: #dff8f7;
+    cursor: pointer;
+}
+
+.logoutBtn{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 10px;
+    color:#1d1d1d; 
+    transition: 0.2s ease-in;
+}
+
+.logoutBtn:hover{
+    color:red; 
+    cursor: pointer;
+}
+
+.closeModalBtn{
+    width: 24px;
+    height: 24px;
+}
+
+#addWishListBtn{
+    width: 150px;
+    padding: 7px 0;
+    font-size: .95rem;
+    margin-left: 4px;
+    border-style: none;
+    border-radius: 5px;
+    background: rgb(204, 233, 203);
+    color: green;
+    transition: 0.2s ease-in;
+}
+
+#addWishListBtn:hover{
+    background: rgb(98, 179, 60);
+    color: white;
+    cursor: pointer;
+}
+
+#closeModalBtn{
+    width: 150px;
+    padding: 7px 0;
+    font-size: .95rem;
+    margin-right: 4px;
+    border-style: none;
+    border-radius: 5px;
+    background: rgb(233, 203, 203);
+    color: red;
+    transition: 0.2s ease-in;
+}
+
+#closeModalBtn:hover{
+    background: rgb(202, 84, 84);
+    color: white;
+    cursor: pointer;
+}
+
+#cbActive{
+    transform: scale(1.3);
+}
+
+.colorRadioBtn:hover{
+    cursor: pointer;
+    transform:scale(1.1);
+}
+
+.removeWishListBtn{
+    color: #1d1d1d;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    transition: 0.2s ease-in;
+}
+
+.removeWishListBtn:hover{
+    color: rgb(202, 84, 84);
+    cursor: pointer;
+}
+
+.gridCard:hover, .addProductCard:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+#errorBtn{
+    width:150px; 
+    margin:10px auto; 
+    padding:5px 0;
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    background:none;    
+    color:#1d1d1d; 
+    font-size:1.1rem; 
+    border-radius:50px; 
+    border-style:none; 
+    transition: 0.2s ease-in;
+}
+
+#errorBtn:hover{
+    background:rgba(255, 255, 255, 0.285);    
+    cursor: pointer;    
+
+}
+
