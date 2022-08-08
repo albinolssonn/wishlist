@@ -20,14 +20,11 @@ const WishListProductComponent = ( { userToken } ) => {
     const [addProductModal, setAddProductModal] = useState(false);
     const navigate = useNavigate(); 
     const [user, setUser] = useState({});  
-  
-    
 
     useEffect(() => {
         getWishList();
         getProducts(); 
     }, []); 
-
 
     // Här är en major bugg när man uppdaterar sidan, titta på det senare
 
@@ -55,7 +52,7 @@ const WishListProductComponent = ( { userToken } ) => {
                 <div className="topModule" style={{maxWidth:"80%",margin:"10px auto",borderRadius:"5px",background:"#ffffff"}}>
                     <div className="topmoduleGrid" style={{padding:"10px",position:"relative"}}>
                     
-                    {nameToggle ? <ChangeListNameModal openModal={setNameToggle}/> : 
+                    {nameToggle ? <ChangeListNameModal getNewName={getWishList} userID={userToken} openModal={setNameToggle}/> : 
 
                         <div className="topModuleContent" style={{display:"flex",alignItems:"center"}}>
                                 <div className="wlTitle" style={{marginRight:"5px"}}>
@@ -66,7 +63,6 @@ const WishListProductComponent = ( { userToken } ) => {
                                     <EditIcon style={{fontSize:"1.5rem",color:"#a3b9cd",marginTop:"5.5px"}}/>
                                 </div> 
                         </div>
-
                     }
 
 
