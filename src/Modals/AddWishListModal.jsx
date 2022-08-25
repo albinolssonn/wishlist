@@ -13,23 +13,27 @@ function AddWishListModal({ openModal, updateWishList }) {
     const [colorBtn4,setColorBtn4] = useState(""); 
     const [colorBtn5,setColorBtn5] = useState(""); 
     const [colorBtn6,setColorBtn6] = useState(""); 
+    const [errorCode, setErrorCode] = useState(""); 
 
     const { id } = useParams(); 
 
-
     const addWishList = async () => {
-        await addDoc(collection(db, "users", id, "wishlists"), {
-            name: newName,
-            color: newColor,
-            })
-            .then(() => {
-                console.log ("Successful Profile Registration") // Ta bort senare
-                openModal(false); 
-                updateWishList(); 
-            })
-            .catch((error) => {
-                console.error("Error writing document: ", error)
-            })
+        if(newName != "" & newColor != ""){
+            await addDoc(collection(db, "users", id, "wishlists"), {
+                name: newName,
+                color: newColor,
+                })
+                .then(() => {
+                    openModal(false); 
+                    updateWishList(); 
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error)
+                })
+            }
+            else{
+                setErrorCode("Listan behöver ett namn och en färg.");  
+            }
     }
 
     const setButtonColorActive = (colorValue) => {
@@ -67,7 +71,7 @@ function AddWishListModal({ openModal, updateWishList }) {
     }
 
   return (
-    <div className='wlModalBG' style={{width:"80%",margin:"auto",marginBottom:"10px",background:"#ffffff",borderRadius:"5px"}}>
+    <div className='wlModalBG' style={{width:"80%",margin:"auto",marginBottom:"10px",background:"#ffffff",borderRadius:"5px",position:"relative"}}>
         <div className="wlModalContainer" style={{maxWidth:"50%",margin:"auto",padding:"10px",position:"relative"}}>
             {/* <div className="closeModalBtnDiv" style={{textAlign:"right"}}>
                 <div className="closeModalBtn" ><CloseIcon /></div>
@@ -77,9 +81,14 @@ function AddWishListModal({ openModal, updateWishList }) {
                 <h2>Lägg till en önskelista</h2>
             </div>
 
-            <div className="wlNameForm" style={{textAlign:"center",}}>
-                <input type="text" style={RLInput} placeholder='Namn på önskelista' onChange={(event) => {setNewName(event.target.value)}} />
+            <div className="wlNameForm" style={{textAlign:"center"}}>
+                <input type="text" style={RLInput} required placeholder='Namn på önskelista' onChange={(event) => {setNewName(event.target.value)}} />
             </div>
+
+            {errorCode && <p style={{color:"red", fontSize:".7rem"}}>{errorCode}</p>}
+
+
+            
 
             <div className="wlColorForm">
                 
@@ -94,6 +103,7 @@ function AddWishListModal({ openModal, updateWishList }) {
 
             </div>
 
+
             <div className="wlButtonContainer" style={{textAlign:"center"}}>
                 <button id='closeModalBtn' onClick={()=> openModal(false)}>Avbryt</button>
                 <button id='addWishListBtn' onClick={addWishList}>Lägg till</button>
@@ -102,10 +112,9 @@ function AddWishListModal({ openModal, updateWishList }) {
 
 
         </div>
+
     </div>
   )
 }
 
 export default AddWishListModal
-
-//,display:"flex",justifyContent:"center",alignItems:"center"

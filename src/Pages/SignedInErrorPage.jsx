@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../Server/firebase-config';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import '../Assets/Buttons.css';
+import '../Assets/ButtonStyle.css';
 
 
 const SignedInErrorPage = () => {

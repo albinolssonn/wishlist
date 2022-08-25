@@ -59,20 +59,6 @@
     cursor: pointer;
 }
 
-.logoutBtn{
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    right: 10px;
-    color:#1d1d1d; 
-    transition: 0.2s ease-in;
-}
-
-.logoutBtn:hover{
-    color:red; 
-    cursor: pointer;
-}
-
 .closeModalBtn{
     width: 24px;
     height: 24px;
@@ -104,7 +90,7 @@
     border-style: none;
     border-radius: 5px;
     background: rgb(233, 203, 203);
-    color: red;
+    color: rgb(202, 84, 84);
     transition: 0.2s ease-in;
 }
 
@@ -136,9 +122,9 @@
     cursor: pointer;
 }
 
-.gridCard:hover, .addProductCard:hover{
-    cursor: pointer;
-    transform: scale(1.03);
+.wl-product-card:hover, .addProductCard:hover, .wl-product-grid-add-btn:hover, .wl-grid-card:hover{
+    cursor: pointer; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
 #errorBtn{
@@ -159,6 +145,46 @@
 #errorBtn:hover{
     background:rgba(255, 255, 255, 0.285);    
     cursor: pointer;    
-
 }
 
+.closeNameChangeBtn{
+    background: rgb(233, 203, 203);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.updateNameBtn{
+    background: rgb(204, 233, 203);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.removeWLBtn{
+    width:35px;
+    height:35px;
+    text-align:center; 
+    border-radius:50px;
+    position:absolute;
+    right:5px;
+    transition: 0.2s ease-in;
+}
+
+.removeWLBtn:hover{
+    background: #dff8f7;
+    cursor: pointer;
+}
+
+.wl-product-card-remove-btn {
+    position:absolute;
+    z-index:1; 
+    right:5px; 
+    top:5px; 
+}

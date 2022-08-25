@@ -3,7 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../Server/firebase-config';
 import LoginIcon from '@mui/icons-material/Login';
-import '../Assets/Buttons.css';
+import '../Assets/ButtonStyle.css';
 
 
 const SignedOutErrorPage = () => {

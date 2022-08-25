@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import RegisterPage from './Pages/RegisterPage';
 import LoginPage from './Pages/LoginPage'
-import WishListProfilePage from './Pages/WishListProfilePage';
-import SingleWishListPage from './Pages/SingleWishListPage';
+import WishlistPage from './Pages/WishlistPage';
+import WishlistProductsPage from './Pages/WishlistProductsPage';
 import SignedOutErrorPage from './Pages/SignedOutErrorPage';
+import SignedInErrorPage from './Pages/SignedInErrorPage';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Server/firebase-config';
 import { useState } from 'react';
@@ -21,8 +22,9 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route path='/profile/:id' element={<WishListProfilePage userToken={user.uid} />}/>
-            <Route path='/wlist/:id' element={<SingleWishListPage loggedInUser={user.uid} />}/>
+            <Route path='/profile/:id' element={<WishlistPage userToken={user.uid} />}/>
+            <Route path='/wlist/:id' element={<WishlistProductsPage loggedInUser={user.uid} />}/>
+            <Route path='*' element={<SignedInErrorPage />}/>
           </Routes>
         </div>
       </Router>

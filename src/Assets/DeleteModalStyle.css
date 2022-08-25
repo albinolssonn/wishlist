@@ -1,0 +1,48 @@
+.wl-delete-modal {
+    z-index:1; 
+    width:300px; 
+    background:#ffffff; 
+    margin-top:5px; 
+    position:absolute; 
+    right:0px; 
+    border-radius:5px; 
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.wl-delete-modal-container {
+    text-align:center; 
+}
+
+.wl-delete-modal-title {
+    padding:10px; 
+}
+
+.wl-delete-modal-cap {
+    margin:10px 0px; 
+}
+
+.wl-delete-modal-buttons {
+    display:flex; 
+    justify-content:center;
+    gap:5px; 
+    margin-bottom:10px; 
+}
+
+.wl-delete-modal-buttons-keep-btn, .wl-delete-modal-buttons-remove-btn {
+    padding:5px 8px; 
+    display:flex; 
+    align-items:center; 
+    border-radius:50px; 
+    transition: 0.2s ease-in;
+}
+
+.wl-delete-modal-buttons-keep-btn:hover {
+    cursor:pointer; 
+    background:rgb(204, 233, 203); 
+}
+
+.wl-delete-modal-buttons-remove-btn:hover {
+    cursor:pointer; 
+    background:rgb(233, 203, 203);
+}
+
