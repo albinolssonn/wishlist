@@ -7,7 +7,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import '../Assets/SettingsModalStyle.css';
 
 
-const WishListSettingsModal = ( {showSettings, openNameChange, deleteVerification} ) => {
+const WishListSettingsModal = ( {showSettings, openNameChange, deleteVerification, setShareable} ) => {
+
   return (
     <div className='wl-settings-modal'>
         <div className="wl-settings-modal-title">
@@ -18,10 +19,6 @@ const WishListSettingsModal = ( {showSettings, openNameChange, deleteVerificatio
         <div className="divider" style={{height:"1px",background:"#474849",width:"95%",margin:"auto"}}></div>
 
         <ul>
-            <li className='wl-settings-modal-row'> 
-                <div className="wl-setting-modal-row-icon"><IosShareIcon /></div> 
-                <div className="wl-setting-modal-row-title">Dela Önskelista</div>
-            </li>
             <li className='wl-settings-modal-row' onClick={()=>openNameChange(true) & showSettings(false)}> 
                 <div className="wl-setting-modal-row-icon"><EditIcon /></div> 
                 <div className="wl-setting-modal-row-title">Ändra namn</div>

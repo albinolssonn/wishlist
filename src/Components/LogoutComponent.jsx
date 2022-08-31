@@ -15,10 +15,9 @@ const LogoutComponent = () => {
   
     
   return (
-    <div className='profileBanner' style={{background:"#ffffff",height:"43px"}}>
-        <div className="bannerDiv" style={{maxWidth:"auto",margin:"auto",padding:"10px",display:"flex",justifyContent:"right",alignItems:"center",gap:"5px",color:"#5188ad"}}>
-          <p style={{transition:"0.2s ease-in", opacity:`${textOppacity}`}}>Inloggad som {user.email} </p>
-          <AccountCircleIcon onMouseEnter={()=>setTextOppacity(100)} onMouseLeave={()=>setTextOppacity(0)}/>
+    <div className='profileBanner' style={{position:"fixed",background:"#ffffff",height:"43px", width:"100%",zIndex:"3"}}>
+        <div className="bannerDiv" style={{position:"relative",width:"100%",margin:"auto",padding:"10px",display:"flex",justifyContent:"right",alignItems:"center",gap:"5px",color:"#5188ad"}}>
+          {/* Här ska vara innehåll av något slag, men vet inte vad, dessutom är ovan divs helt fucked. Skit i dom. */}
         </div>
         
     </div>

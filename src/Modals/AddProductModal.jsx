@@ -29,10 +29,8 @@ const AddProductModal = ( { openModal, userID, updateProducts } ) => {
                 imglink: productImgLink
                 })
                 .then(() => {
-                    console.log ("Successful Profile Registration") // Ta bort senare
                     updateProducts(); 
                     openModal(false); 
-
                 })
                 .catch((error) => {
                     console.error("Error writing document: ", error)

@@ -50,7 +50,7 @@ const VerticalNav = ( {setGridSize} ) => {
 
    if(menuStatus){
     return (
-      <div className='navbar' style={{position:"fixed", marginRight:"10px"}} onMouseLeave={foldMenuFunction}>
+      <div className='navbar' style={{zIndex:"10",position:"fixed", marginRight:"10px"}} onMouseLeave={foldMenuFunction}>
         <div className="navbar__content" style={{background:"#ffffff",height:"100vh",position:"relative",width:"250px",boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",zIndex:"5"}}>
 
           <div className="logo__container" style={{padding:"20px 20px 50px 20px",textAlign:"center"}}>
@@ -89,7 +89,7 @@ const VerticalNav = ( {setGridSize} ) => {
 
    } else {
     return (
-      <div className="folded-navbar" style={{position:"fixed"}} onMouseOver={openMenuFunction}> 
+      <div className="folded-navbar" style={{zIndex:"10",position:"fixed"}} onMouseOver={openMenuFunction}> 
         <div className="folded-navbar-content" style={{background:"#ffffff",height:"100vh",position:"relative",width:"60px",boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
           
         <div className="logo__container" style={{padding:"20px 20px 50px 20px",textAlign:"center"}}>

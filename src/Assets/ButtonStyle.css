@@ -148,37 +148,57 @@
 }
 
 .closeNameChangeBtn{
-    background: rgb(233, 203, 203);
+    color: #ff5353;
     height: 30px;
     width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+    transition: 0.2s ease-in;
+}
+
+.closeNameChangeBtn:hover{
+    cursor: pointer;
+    background: #f5a8a8;
 }
 
 .updateNameBtn{
-    background: rgb(204, 233, 203);
+    color: #499d24;
     height: 30px;
     width: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+    transition: 0.2s ease-in;
 }
 
-.removeWLBtn{
+.updateNameBtn:hover{
+    cursor: pointer;
+    background: rgb(204, 233, 203);
+}
+
+.settings-wl-btn, .share-wl-btn, .unshare-wl-btn{
     width:35px;
     height:35px;
     text-align:center; 
     border-radius:50px;
-    position:absolute;
-    right:5px;
     transition: 0.2s ease-in;
 }
 
-.removeWLBtn:hover{
+.settings-wl-btn:hover{
     background: #dff8f7;
+    cursor: pointer;
+}
+
+.share-wl-btn:hover{
+    background-color: rgb(204, 233, 203);
+    cursor: pointer;
+}
+
+.unshare-wl-btn:hover{
+    background-color: #f5a8a8;
     cursor: pointer;
 }
 
@@ -188,3 +208,59 @@
     right:5px; 
     top:5px; 
 }
+
+#reserve-btn{
+    z-index: 999; 
+    width:95%; 
+    padding:8px 10px; 
+    background:#fec478d1;
+    color:white; 
+    font-size:1rem; 
+    border-radius:50px; 
+    border-style:none; 
+    transition: 0.2s ease-in; 
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+#purchase-btn{
+    z-index: 999;
+    width:95%;
+    padding:8px 10px; 
+    background:rgb(180, 245, 178); 
+    color:white; 
+    font-size:1rem; 
+    border-radius:50px; 
+    border-style:none;
+    transition: 0.2s ease-in; 
+}
+
+#reserve-btn:hover{
+    background:#f6b054;
+    cursor: pointer;
+}
+
+#purchase-btn:hover {
+    background:rgb(128, 217, 125); 
+    cursor: pointer;
+}
+
+#copy-secreturl-btn{
+    height:35px; 
+    padding:0px 10px; 
+    color: #474849; 
+    background: #fff;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    border-style: none;
+    border-radius: 50px;
+    transition: 0.2s ease-in;
+}
+
+#copy-secreturl-btn:hover{
+    cursor: pointer;
+    background: #accff9;
+}
+

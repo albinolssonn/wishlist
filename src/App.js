@@ -9,6 +9,7 @@ import SignedInErrorPage from './Pages/SignedInErrorPage';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Server/firebase-config';
 import { useState } from 'react';
+import SharedListPage from './Pages/SharedListPage';
 
 function App() {
   const [user, setUser] = useState({});  
@@ -38,6 +39,8 @@ function App() {
             <Route path='/register' element={<RegisterPage />}/>
             <Route path='/login' element={<LoginPage />}/>
             <Route path='*' element={<SignedOutErrorPage />}/>
+            <Route path='/u/:user/wl/:id' element={<SharedListPage />}/>
+
           </Routes>
         </div>
       </Router>

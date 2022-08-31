@@ -1,17 +1,22 @@
-import { collection, deleteDoc, doc, getDoc, getDocs } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { auth, db } from '../Server/firebase-config';
+
+import LoadingComponent from './LoadingComponent';
+import DeleteVerificationModal from '../Modals/RemoveWishlistVerificationModal';
 import ChangeListNameModal from '../Modals/UpdateWishlistNameModal';
 import WishListSettingsModal from '../Modals/WishlistSettingsModal';
 import AddProductModal from '../Modals/AddProductModal';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+
+import SellIcon from '@mui/icons-material/Sell';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import StoreIcon from '@mui/icons-material/Store';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import LoadingComponent from './LoadingComponent';
-import DeleteVerificationModal from '../Modals/RemoveWishlistVerificationModal';
 import DeleteIcon from '@mui/icons-material/Delete';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import LockIcon from '@mui/icons-material/Lock';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 
 const WishlistProductsComponent = ( { userToken } ) => {
@@ -25,12 +30,14 @@ const WishlistProductsComponent = ( { userToken } ) => {
     const [isLoading, setIsLoading] = useState(false); 
     const [showSettings, setShowSettings] = useState(false); 
     const [showDeleteVerification, setShowDeleteVerification] = useState(false); 
-    const [showProductSettings, setShowProductSettings] = useState(false); 
+    const [secretUrl, setSecretUrl] = useState(""); 
+
 
     useEffect(() => {
         if(user){
             getWishlist();
             getProducts();
+            setSecretUrl(`https://listify.com/u/${user.uid}/wl/${id}`)
         }
         else{
             setIsLoading(true);
@@ -40,21 +47,11 @@ const WishlistProductsComponent = ( { userToken } ) => {
 
     const getWishlist = async () => {
         const wishListDocRef = doc(db, "users", user.uid, "wishlists", id); 
-        setIsLoading(true);
         const returnData = await getDoc(wishListDocRef)
         .then((doc) => {
             setWishList(doc.data(), doc.id);
         })
-        setIsLoading(false)
     }; 
-
-    const removeWishlist = async () => {
-        const wishListDocRef = doc(db, "users", user.uid, "wishlists", id); 
-        setIsLoading(true)
-        await deleteDoc(wishListDocRef);
-        setIsLoading(false)
-        navigate(`/profile/${userToken}`)
-    }    
 
     const getProducts = async () =>{
         const productColRef = collection(db, "users", user.uid, "wishlists", id, "products"); 
@@ -64,6 +61,19 @@ const WishlistProductsComponent = ( { userToken } ) => {
         setProducts(data.docs.map((doc) => ({...doc.data(), id: doc.id}))); 
     }; 
 
+    const removeWishlist = async () => {
+        const wishListDocRef = doc(db, "users", user.uid, "wishlists", id); 
+        const productColRef = collection(db, "users", user.uid, "wishlists", id, "products"); 
+        setIsLoading(true)
+        const querySnapshot = await getDocs(productColRef);
+        querySnapshot.forEach((doc) => {
+            removeProduct(doc.id)
+        })
+            await deleteDoc(wishListDocRef)
+        setIsLoading(false)
+        navigate(`/profile/${userToken}`)
+    } 
+
     const removeProduct = async (prodId) => {
         const productColRef = doc(db, "users", user.uid, "wishlists", id, "products", prodId); 
         setIsLoading(true); 
@@ -72,7 +82,20 @@ const WishlistProductsComponent = ( { userToken } ) => {
         getProducts(); 
     }
 
-    
+    const shareWishlist = async () => {
+        const wishListDocRef = doc(db, "users", user.uid, "wishlists", id); 
+        if(wishList.shareable == true) {
+            await updateDoc(wishListDocRef, {
+                shareable: false
+              });
+        } else {
+            await updateDoc(wishListDocRef, {
+                shareable: true
+              });
+        }
+        getWishlist(); 
+    }
+
 
     if(isLoading){
         return(
@@ -83,33 +106,55 @@ const WishlistProductsComponent = ( { userToken } ) => {
     }else{
         return (
                 <div style={{position:"relative"}}>
-                        <div className="topModule" style={{maxWidth:"80%",margin:"10px auto",borderRadius:"5px",background:"#ffffff",position:"relative"}}>
+                        <div className="topModule" style={{maxWidth:"80%",margin:"10px auto",borderRadius:"5px",background:"#ffffff",position:"relative", marginTop:"50px"}}>
                             <div className="topmoduleGrid" style={{padding:"10px",position:"relative"}}>
                             
-                            {nameToggle ? <ChangeListNameModal getNewName={getWishlist} userID={userToken} openModal={setNameToggle}/> : 
-        
-                                <div className="topModuleContent" style={{display:"flex",alignItems:"center"}}>
-                                        <div className="wlTitle" style={{marginRight:"5px"}}>
-                                            <h1>{wishList.name}</h1>
-                                        </div>
+                                {nameToggle ? <ChangeListNameModal getNewName={getWishlist} userID={userToken} openModal={setNameToggle}/> : 
+            
+                                    <div className="topModuleContent" style={{display:"flex",alignItems:"center"}}>
+                                            <div className="wlTitle" style={{marginRight:"5px"}}>
+                                                <h1>{wishList.name}</h1>
+                                                <p>Lägg till 5 sek inforuta längst ner när man kopierar!</p>
+                                            </div>
 
-                                        <div className="removeWLBtn" onClick={()=> setShowSettings(true)}>
-                                            <MoreVertIcon style={{fontSize:"1.5rem",color:"#a3b9cd",marginTop:"5.5px"}}/>
-                                        </div>
-                                </div>
+                                            <div className="top-module-btn-duv" style={{display:"flex", alignItems:"center",gap:"5px", position:"absolute",right:"10px"}}>
+                                                
+                                                {wishList.shareable ? 
+                                                <div className='secret-url-container' style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+                                                    <button id="copy-secreturl-btn" onClick={() =>  navigator.clipboard.writeText(secretUrl)}><ContentCopyIcon style={{fontSize:"1.5rem"}}/> Kopiera hemlig länk</button>
+                                                    <div className="unshare-wl-btn" onClick={shareWishlist}>
+                                                        <LockOpenIcon style={{fontSize:"1.5rem",color:"#ff5353",marginTop:"5.5px"}}/>
+                                                    </div>
 
-                            }
+                                                </div>
+
+                                                
+                                                :
+                                                <div className="share-wl-btn" onClick={shareWishlist}>
+                                                    <LockIcon style={{fontSize:"1.5rem",color:"#499d24",marginTop:"5.5px"}}/>
+                                                </div>}
+
+                                                <div className="settings-wl-btn" onClick={()=> setShowSettings(true)}>
+                                                    <MoreVertIcon style={{fontSize:"1.5rem",color:"#a3b9cd",marginTop:"5.5px"}}/>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                }
                             </div>
+                            
                             {showSettings && <WishListSettingsModal 
                                 deleteVerification={setShowDeleteVerification} 
                                 showSettings={setShowSettings} 
                                 openNameChange={setNameToggle}
+                                setShareable={shareWishlist}
                             />}
 
                             {showDeleteVerification && <DeleteVerificationModal 
                             deleteVerification={setShowDeleteVerification} 
                             removeWishlist={removeWishlist}
                             />}
+
                         </div>   
 
         
@@ -137,7 +182,7 @@ const WishlistProductsComponent = ( { userToken } ) => {
                                                 </div>
                                                 <div className="wl-product-card-content-info" style={{padding:"10px"}}>
                                                     <h3 style={{marginBottom:"10px"}}>{prod.name}</h3>
-                                                    <p style={{display:"flex", alignItems:"center"}}><MonetizationOnIcon />{prod.price} SEK</p>
+                                                    <p style={{display:"flex", alignItems:"center"}}><SellIcon />{prod.price} SEK</p>
                                                     <p style={{display:"flex", alignItems:"center"}}><StoreIcon /> {prod.store}</p>
                                                 </div>
                                             </div>
@@ -148,8 +193,6 @@ const WishlistProductsComponent = ( { userToken } ) => {
                             })}
 
                         </div>
-
-                        
                     </div>
                 
           )

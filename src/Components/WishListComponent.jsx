@@ -36,7 +36,7 @@ const WishlistComponent = () => {
     } else {
         return (
             <div style={{position:"relative"}}>
-                <div className="topModule" style={{maxWidth:"80%",margin:"10px auto",borderRadius:"5px",background:"#ffffff"}}>
+                <div className="topModule" style={{maxWidth:"80%",margin:"10px auto",borderRadius:"5px",background:"#ffffff", marginTop:"50px"}}>
                     <div className="topmoduleGrid" style={{padding:"10px",display:"grid",gridTemplateColumns:"1fr 1fr",position:"relative"}}>
                         <div className="wlTitle">
                             <h1>Dina önskelistor</h1>
@@ -50,7 +50,7 @@ const WishlistComponent = () => {
         
                 {showModal && <AddWishListModal updateWishList={getUsersWishList} openModal={setShowModal}/>}
         
-                <div className="wl-grid" style={{maxWidth:"80%",margin:"auto",display:"grid",gridGap:"10px",gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))"}}>
+                <div className="wl-grid" style={{maxWidth:"80%",margin:"auto",display:"grid",gridGap:"10px",gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))"}}>
                     {wishlists.map((list, key) => {
                         return(
 

@@ -1,0 +1,10 @@
+Detail Colors: 
+    Green: #499d24
+    Red: #ff5353
+    Blue: #a3b9cd
+
+Background Colors: 
+    Light Blue: #dff8f7
+    Light Green: rgb(204, 233, 203)
+    Light Red: #f5a8a8
+    Darker Blue: #accff9
