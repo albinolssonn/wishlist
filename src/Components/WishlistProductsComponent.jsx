@@ -17,6 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const WishlistProductsComponent = ( { userToken } ) => {
@@ -31,6 +32,7 @@ const WishlistProductsComponent = ( { userToken } ) => {
     const [showSettings, setShowSettings] = useState(false); 
     const [showDeleteVerification, setShowDeleteVerification] = useState(false); 
     const [secretUrl, setSecretUrl] = useState(""); 
+    const [copyToggle, setCopyToggle] = useState(false); 
 
 
     useEffect(() => {
@@ -38,6 +40,7 @@ const WishlistProductsComponent = ( { userToken } ) => {
             getWishlist();
             getProducts();
             setSecretUrl(`https://listify.com/u/${user.uid}/wl/${id}`)
+            
         }
         else{
             setIsLoading(true);
@@ -96,6 +99,14 @@ const WishlistProductsComponent = ( { userToken } ) => {
         getWishlist(); 
     }
 
+    const copyUrlFunction = () =>{
+        navigator.clipboard.writeText(secretUrl); 
+        setCopyToggle(true);
+        setTimeout(()=>{
+            setCopyToggle(false);
+        }, 3000);
+    }
+
 
     if(isLoading){
         return(
@@ -114,18 +125,23 @@ const WishlistProductsComponent = ( { userToken } ) => {
                                     <div className="topModuleContent" style={{display:"flex",alignItems:"center"}}>
                                             <div className="wlTitle" style={{marginRight:"5px"}}>
                                                 <h1>{wishList.name}</h1>
-                                                <p>Lägg till 5 sek inforuta längst ner när man kopierar!</p>
                                             </div>
 
                                             <div className="top-module-btn-duv" style={{display:"flex", alignItems:"center",gap:"5px", position:"absolute",right:"10px"}}>
                                                 
                                                 {wishList.shareable ? 
                                                 <div className='secret-url-container' style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-                                                    <button id="copy-secreturl-btn" onClick={() =>  navigator.clipboard.writeText(secretUrl)}><ContentCopyIcon style={{fontSize:"1.5rem"}}/> Kopiera hemlig länk</button>
+                                                    {copyToggle ?
+                                                    <button id="copied-secret-url-btn"><CheckCircleIcon style={{color:"#499d24", fontSize:"1.5rem"}}/> Länk kopierad!</button>
+                                                    :
+                                                    <button id="copy-secret-url-btn" onClick={copyUrlFunction}><ContentCopyIcon style={{fontSize:"1.5rem"}}/> Kopiera hemlig länk</button>
+                                                    }
+
+
+
                                                     <div className="unshare-wl-btn" onClick={shareWishlist}>
                                                         <LockOpenIcon style={{fontSize:"1.5rem",color:"#ff5353",marginTop:"5.5px"}}/>
                                                     </div>
-
                                                 </div>
 
                                                 

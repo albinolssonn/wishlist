@@ -1,0 +1,38 @@
+.register-form {
+    height:100vh; 
+    position:relative; 
+    background:linear-gradient(0deg, rgba(155,88,207,1) 0%, rgba(139,223,203,1) 100%); 
+}
+
+.register-form-bg {
+    width:350px; 
+    height:600px; 
+    background:#ffffff; 
+    border-radius:5px; 
+    position:absolute; 
+    top:50%; 
+    left:50%; 
+    transform:translate(-50%, -50%); 
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.register-form-logo-container {
+    position: absolute;
+    top:10px; 
+    left: 10px;
+}
+
+.register-form-content {
+    padding:40px; 
+    text-align:center; 
+}
+
+#register-form-logo {
+    max-width: 150px;
+}
+
+#navigate-link {
+    text-decoration:none; 
+    color:#1d1d1d; 
+    font-size:.95rem; 
+}

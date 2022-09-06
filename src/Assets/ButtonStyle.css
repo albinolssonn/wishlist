@@ -246,7 +246,7 @@
     cursor: pointer;
 }
 
-#copy-secreturl-btn{
+#copy-secret-url-btn, #copied-secret-url-btn{
     height:35px; 
     padding:0px 10px; 
     color: #474849; 
@@ -254,13 +254,20 @@
     margin-right: 5px;
     display: flex;
     align-items: center;
+    gap:3px;
     border-style: none;
     border-radius: 50px;
     transition: 0.2s ease-in;
 }
 
-#copy-secreturl-btn:hover{
+#copy-secret-url-btn:hover{
     cursor: pointer;
     background: #accff9;
+}
+
+#copied-secret-url-btn:hover {
+    cursor: pointer;
+    background: rgb(204, 233, 203);
+    
 }
 
