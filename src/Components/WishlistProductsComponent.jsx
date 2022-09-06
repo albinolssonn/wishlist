@@ -39,7 +39,7 @@ const WishlistProductsComponent = ( { userToken } ) => {
         if(user){
             getWishlist();
             getProducts();
-            setSecretUrl(`https://listify.com/u/${user.uid}/wl/${id}`)
+            setSecretUrl(`localhost:3000/u/${user.uid}/wl/${id}`)
             
         }
         else{

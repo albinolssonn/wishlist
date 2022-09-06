@@ -2,9 +2,11 @@ import { collection, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { db } from '../Server/firebase-config';
+
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import StoreIcon from '@mui/icons-material/Store';
-import CheckIcon from '@mui/icons-material/Check';
+import LockIcon from '@mui/icons-material/Lock';
+
 
 const SharedWishlistComponent = () => {
     const { id, user } = useParams(); 
@@ -87,44 +89,49 @@ const SharedWishlistComponent = () => {
                 </div>
             </div>
 
+            {wishlist.shareable ? 
+            
             <div className="wl-product-grid" style={{margin:"auto",display:"grid",gridGap:"10px",gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))"}}>
                             
-                            {products.map((prod, key)=> {
-                                return(
-                                    <div key={key} className="wl-product-card-shared" style={{minHeight:"270px",background:"#fff",borderRadius:"5px",position:"relative",transition:"0.2s ease-in"}}>
+                {products.map((prod, key)=> {
+                    return(
+                        <div key={key} className="wl-product-card-shared" style={{minHeight:"270px",background:"#fff",borderRadius:"5px",position:"relative",transition:"0.2s ease-in"}}>
 
-                                            <div className='wl-product-card-content'>
-                                                <div className="wl-product-card-content-img" style={{height:"150px",paddingTop:"10px",display:"flex",alignItems:"center", justifyContent:"center",marginBottom:"8px"}}>
-                                                    <img style={{maxWidth:"150px",padding:"10px"}} src={prod.imglink} alt="" />
-                                                </div>
-                                                <div className="wl-product-card-content-info" style={{padding:"10px"}}>
-                                                    <h3 style={{marginBottom:"10px"}}>{prod.name}</h3>
-                                                    <p style={{display:"flex", alignItems:"center"}}><MonetizationOnIcon />{prod.price} SEK</p>
-                                                    <p style={{display:"flex", alignItems:"center"}}><StoreIcon /> {prod.store}</p>
-                                                </div>
+                            <div className='wl-product-card-content'>
+                                <div className="wl-product-card-content-img" style={{height:"150px",paddingTop:"10px",display:"flex",alignItems:"center", justifyContent:"center",marginBottom:"8px"}}>
+                                    <img style={{maxWidth:"150px",padding:"10px"}} src={prod.imglink} alt="" />
+                                </div>
+                                <div className="wl-product-card-content-info" style={{padding:"10px"}}>
+                                    <h3 style={{marginBottom:"10px"}}>{prod.name}</h3>
+                                    <p style={{display:"flex", alignItems:"center"}}><MonetizationOnIcon />{prod.price} SEK</p>
+                                    <p style={{display:"flex", alignItems:"center"}}><StoreIcon /> {prod.store}</p>
+                                </div>
 
-                                                {prod.reservable ? <div className="wl-product-card-reserv-div" style={{textAlign:"center",marginBottom:"10px",display:"flex",flexDirection:"column",gap:"5px",alignItems:"center"}}>
-                                                    <button onClick={()=>{removeReserver(prod.id)}} id="reserve-btn">Reserverad</button>
-                                                    <a style={{width:"100%"}}href={prod.link} target="_blank"><button id="purchase-btn">Köp nu</button></a>
+                                {prod.reservable ? 
+                                <div className="wl-product-card-reserv-div" style={{textAlign:"center",marginBottom:"10px",display:"flex",flexDirection:"column",gap:"5px",alignItems:"center"}}>
+                                    <button onClick={()=>{removeReserver(prod.id)}} id="reserve-btn">Reserverad</button>
+                                    <a style={{width:"100%"}}href={prod.link} target="_blank"><button id="purchase-btn">Köp nu</button></a>
+                                </div>
+                                : 
+                                <div className="wl-product-card-reserv-div" style={{textAlign:"center",marginBottom:"10px",display:"flex",flexDirection:"column",gap:"5px",alignItems:"center"}}>
+                                    <button onClick={()=>{addReserver(prod.id)}} id="reserve-btn">Reservera</button>
+                                    <a style={{width:"100%"}}href={prod.link} target="_blank"><button id="purchase-btn">Köp nu</button></a>
+                                </div>
+                                }
 
-                                                </div>
-                                                : 
-                                                <div className="wl-product-card-reserv-div" style={{textAlign:"center",marginBottom:"10px",display:"flex",flexDirection:"column",gap:"5px",alignItems:"center"}}>
-                                                    <button onClick={()=>{addReserver(prod.id)}} id="reserve-btn">Reservera</button>
-                                                    <a style={{width:"100%"}}href={prod.link} target="_blank"><button id="purchase-btn">Köp nu</button></a>
-                                                </div>
-                                                }
-
-                                            </div>
-                                    
-                                        
-                                    </div>
-                                    
-                                )
-                            })}
-
+                            </div>
                         </div>
+                    )
+                })}
 
+            </div>
+            : 
+            <div className="unshared-list-module" style={{background:"white",padding:"10px",borderRadius:"5px", marginBottom:"10px"}}>
+                <div className="unshared-list-text" style={{textAlign:"center"}}>
+                    <LockIcon style={{fontSize:"2rem",color:"#ff5353"}}/>
+                    <p>Ägaren till denna lista har gjort den hemlig.</p>
+                </div>
+            </div>}
         </div>
     </div>
   )
