@@ -1,34 +1,164 @@
-#registerBtn{
+/* LOGIN & REGISTER BUTTONS */
+
+#loginBtn {
+    background-color: #f9cf88;
+    height: 41px;
     width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border-radius: 50px;
-    border-style: none;
-    font-weight: bold;
+    padding: 2px 5px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    border-style: none; 
+    border-radius: 5px;
     font-size: 0.95rem;
-    background: linear-gradient(0deg, rgba(211,104,104,1) 0%, rgba(249,177,111,1) 100%);
-    color: white;
+}
+
+#loginBtn:hover{
+    cursor:pointer; 
+}
+
+#registerBtn{
+    background-color: #91f259;
+    height: 41px;
+    width: 100%;
+    padding: 2px 5px;
+    margin: auto;
+    margin-top: 5px;
+    border-style: none; 
+    border-radius: 5px;
+    font-size: 0.95rem;
 }
 
 #registerBtn:hover{
     cursor:pointer; 
 }
 
-#loginBtn{
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border-radius: 50px;
+#navigate-register-btn, #navigate-login-btn {
+    background-color: #5188AD;
+    color: #fff;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
     border-style: none;
-    font-weight: bold;
     font-size: 0.95rem;
-    background: linear-gradient(0deg, rgba(104,179,211,1) 0%, rgba(126,207,88,1) 100%);
-    color: white;
+    transition: 0.2s ease-in;
+} 
+
+#navigate-register-btn:hover, #navigate-login-btn:hover {
+    background-color: #346789;
+    cursor: pointer;
+} 
+
+/* WISHLIST COLLECTION BUTTONS */
+
+.add-wishlist-modal-btn{
+    width: 45px;
+    height: 45px;
+    margin-top: 4px;
+    text-align: center; 
+    border-radius: 50px;
+    transition: 0.2s ease-in;
 }
 
-#loginBtn:hover{
-    cursor:pointer; 
+.add-wishlist-modal-btn:hover{
+    background-color: rgb(204, 233, 203);
+    cursor: pointer;
 }
+
+/* WISHLIST PRODUCTS BUTTONS */
+
+#secret-url-btn-true, #secret-url-btn-false{
+    height:35px; 
+    padding:0px 10px; 
+    color: #474849; 
+    background: #fff;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    gap:3px;
+    border-style: none;
+    border-radius: 50px;
+    transition: 0.2s ease-in;
+}
+
+#secret-url-btn-false:hover{
+    cursor: pointer;
+    background: #accff9;
+}
+
+#secret-url-btn-true:hover {
+    cursor: pointer;
+    background: rgb(204, 233, 203);
+}
+
+#share-wl-btn-false, #share-wl-btn-true, #open-settings-wl-btn {
+    width:35px;
+    height:35px;
+    text-align:center; 
+    border-radius:50px;
+    transition: 0.2s ease-in;
+}
+
+#share-wl-btn-false:hover{
+    background-color: rgb(204, 233, 203);
+    cursor: pointer;
+}
+
+#share-wl-btn-true:hover{
+    background-color: #f5a8a8;
+    cursor: pointer;
+}
+
+#open-settings-wl-btn:hover{
+    background: #dff8f7;
+    cursor: pointer;
+}
+
+#wl-add-product-btn {
+    background: linear-gradient(0deg, rgba(104,179,211,1) 0%, rgba(126,207,88,1) 100%); 
+    min-height: 270px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    border-radius: 5px; 
+    transition: 0.2s ease-in; 
+}
+
+#wl-add-product-btn:hover {
+    cursor: pointer; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.wl-add-product-btn-content {
+    color: white; 
+    text-align: center; 
+}
+
+#remove-product-btn {
+    position:absolute;
+    z-index:1; 
+    right:5px; 
+    top:5px; 
+}
+
+/* SETTINGS MODAL BUTTONS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .openModalBtn{
     width:50px;
@@ -122,10 +252,7 @@
     cursor: pointer;
 }
 
-.wl-product-card:hover, .addProductCard:hover, .wl-product-grid-add-btn:hover, .wl-grid-card:hover{
-    cursor: pointer; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
+
 
 #errorBtn{
     width:150px; 
@@ -179,41 +306,14 @@
     background: rgb(204, 233, 203);
 }
 
-.settings-wl-btn, .share-wl-btn, .unshare-wl-btn{
-    width:35px;
-    height:35px;
-    text-align:center; 
-    border-radius:50px;
-    transition: 0.2s ease-in;
-}
 
-.settings-wl-btn:hover{
-    background: #dff8f7;
-    cursor: pointer;
-}
 
-.share-wl-btn:hover{
-    background-color: rgb(204, 233, 203);
-    cursor: pointer;
-}
-
-.unshare-wl-btn:hover{
-    background-color: #f5a8a8;
-    cursor: pointer;
-}
-
-.wl-product-card-remove-btn {
-    position:absolute;
-    z-index:1; 
-    right:5px; 
-    top:5px; 
-}
 
 #reserve-btn{
     z-index: 999; 
     width:95%; 
     padding:8px 10px; 
-    background:#fec478d1;
+    background:#f6b054;
     color:white; 
     font-size:1rem; 
     border-radius:50px; 
@@ -228,7 +328,7 @@
     z-index: 999;
     width:95%;
     padding:8px 10px; 
-    background:rgb(180, 245, 178); 
+    background:rgb(128, 217, 125); 
     color:white; 
     font-size:1rem; 
     border-radius:50px; 
@@ -237,37 +337,31 @@
 }
 
 #reserve-btn:hover{
-    background:#f6b054;
+    background:#fec478d1;;
     cursor: pointer;
 }
 
 #purchase-btn:hover {
-    background:rgb(128, 217, 125); 
+    background:rgb(180, 245, 178); 
     cursor: pointer;
 }
 
-#copy-secret-url-btn, #copied-secret-url-btn{
-    height:35px; 
-    padding:0px 10px; 
-    color: #474849; 
-    background: #fff;
-    margin-right: 5px;
-    display: flex;
-    align-items: center;
-    gap:3px;
+
+
+#convert-btn {
+    background:#5188AD; 
+    color: #fff;
+    padding:10px; 
+    font-weight: bold;
+    border-radius: 5px;
     border-style: none;
-    border-radius: 50px;
     transition: 0.2s ease-in;
+    display:flex; 
+    align-items: center;
 }
 
-#copy-secret-url-btn:hover{
+#convert-btn:hover {
     cursor: pointer;
-    background: #accff9;
-}
-
-#copied-secret-url-btn:hover {
-    cursor: pointer;
-    background: rgb(204, 233, 203);
-    
+    background: #64a3ce;
 }
 

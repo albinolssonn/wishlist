@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import WishlistComponent from '../Components/WishlistComponent';
+import WishlistCollectionComponent from '../Components/WishlistCollectionComponent';
 import VerticalNav from '../Navigation/VerticalNav';
 import LogoutComponent from '../Components/LogoutComponent';
 import SignedInErrorPage from './SignedInErrorPage';
@@ -18,7 +18,7 @@ const WishlistPage = ( {userToken} ) => {
       
               <div className="mainContent">
                   <LogoutComponent />
-                  <WishlistComponent />
+                  <WishlistCollectionComponent />
               </div>
           </div> 
         )

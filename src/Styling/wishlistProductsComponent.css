@@ -1,0 +1,75 @@
+.wishlist-product-section {
+    position: relative; 
+}
+
+.wl-top-bar {
+    background: #ffffff; 
+    max-width: 80%; 
+    margin: 10px auto; 
+    margin-top: 50px; 
+    border-radius: 5px; 
+    position: relative; 
+}
+
+.wl-top-bar-container {
+    padding: 10px; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    position: relative; 
+}
+
+.wl-top-bar-title {
+    display: flex; 
+    align-items: center; 
+    justify-content: left; 
+}
+
+.wl-top-bar-buttons {
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    position: absolute;
+    right: 10px;
+}
+
+.secret-url-container{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Product Grid Section */
+
+.wl-product-grid-section {
+    max-width: 80%; 
+    margin: auto; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-Gap: 10px; 
+}
+
+.wl-product-card {
+    background:#fff; 
+    min-height: 270px; 
+    position: relative; 
+    border-radius: 5px; 
+    transition: 0.2s ease-in; 
+}
+
+.wl-product-card:hover {
+    cursor: pointer; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.wl-product-card-img {
+    height: 150px; 
+    padding-top: 10px;
+    margin-bottom: 8px;  
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.wl-product-card-info {
+    padding: 10px; 
+}

@@ -26,6 +26,7 @@ function App() {
             <Route path='/profile/:id' element={<WishlistPage userToken={user.uid} />}/>
             <Route path='/wlist/:id' element={<WishlistProductsPage loggedInUser={user.uid} />}/>
             <Route path='*' element={<SignedInErrorPage />}/>
+            <Route path='/u/:user/wl/:id' element={<SharedListPage />}/>
           </Routes>
         </div>
       </Router>

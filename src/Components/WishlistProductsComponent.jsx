@@ -2,6 +2,7 @@ import { collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from 'firebase
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { auth, db } from '../Server/firebase-config';
+import '../Styling/wishlistProductsComponent.css'
 
 import LoadingComponent from './LoadingComponent';
 import DeleteVerificationModal from '../Modals/RemoveWishlistVerificationModal';
@@ -18,6 +19,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 
 
 const WishlistProductsComponent = ( { userToken } ) => {
@@ -114,48 +116,47 @@ const WishlistProductsComponent = ( { userToken } ) => {
                 <LoadingComponent />
             </>
         )
-    }else{
+    }
+    else{
         return (
-                <div style={{position:"relative"}}>
-                        <div className="topModule" style={{maxWidth:"80%",margin:"10px auto",borderRadius:"5px",background:"#ffffff",position:"relative", marginTop:"50px"}}>
-                            <div className="topmoduleGrid" style={{padding:"10px",position:"relative"}}>
-                            
-                                {nameToggle ? <ChangeListNameModal getNewName={getWishlist} userID={userToken} openModal={setNameToggle}/> : 
+                <div className='wishlist-product-section'>
+
+                    <div className="wl-top-bar">
+                        <div className="wl-top-bar-container">
+
+                            {nameToggle ? <ChangeListNameModal getNewName={getWishlist} userID={userToken} openModal={setNameToggle}/> : 
             
-                                    <div className="topModuleContent" style={{display:"flex",alignItems:"center"}}>
-                                            <div className="wlTitle" style={{marginRight:"5px"}}>
-                                                <h1>{wishList.name}</h1>
-                                            </div>
-
-                                            <div className="top-module-btn-duv" style={{display:"flex", alignItems:"center",gap:"5px", position:"absolute",right:"10px"}}>
-                                                
-                                                {wishList.shareable ? 
-                                                <div className='secret-url-container' style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-                                                    {copyToggle ?
-                                                    <button id="copied-secret-url-btn"><CheckCircleIcon style={{color:"#499d24", fontSize:"1.5rem"}}/> Länk kopierad!</button>
-                                                    :
-                                                    <button id="copy-secret-url-btn" onClick={copyUrlFunction}><ContentCopyIcon style={{fontSize:"1.5rem"}}/> Kopiera hemlig länk</button>
-                                                    }
-
-
-
-                                                    <div className="unshare-wl-btn" onClick={shareWishlist}>
-                                                        <LockOpenIcon style={{fontSize:"1.5rem",color:"#ff5353",marginTop:"5.5px"}}/>
-                                                    </div>
-                                                </div>
-
-                                                
-                                                :
-                                                <div className="share-wl-btn" onClick={shareWishlist}>
-                                                    <LockIcon style={{fontSize:"1.5rem",color:"#499d24",marginTop:"5.5px"}}/>
-                                                </div>}
-
-                                                <div className="settings-wl-btn" onClick={()=> setShowSettings(true)}>
-                                                    <MoreVertIcon style={{fontSize:"1.5rem",color:"#a3b9cd",marginTop:"5.5px"}}/>
-                                                </div>
-                                            </div>
+                                <div className="wl-top-bar-content" style={{display:"flex",alignItems:"center"}}>
+                                    <div className="wl-top-bar-title">
+                                        <h1>{wishList.name}</h1>
                                     </div>
 
+                                    <div className="wl-top-bar-buttons">
+                                                
+                                        {wishList.shareable ? 
+                                            <div className='secret-url-container'>
+                                                {copyToggle ?
+                                                <button id="secret-url-btn-true"><CheckCircleIcon style={{color:"#499d24", fontSize:"1.5rem"}}/> Länk kopierad!</button>
+                                                :
+                                                <button id="secret-url-btn-false" onClick={copyUrlFunction}><ContentCopyIcon style={{fontSize:"1.5rem"}}/> Kopiera hemlig länk</button>
+                                                }
+
+                                                <div id="share-wl-btn-true" onClick={shareWishlist}>
+                                                    <LockOpenIcon style={{fontSize:"1.5rem",color:"#ff5353",marginTop:"5.5px"}}/>
+                                                </div>
+                                            </div>
+                                                    
+                                            :
+                                            <div id="share-wl-btn-false" onClick={shareWishlist}>
+                                                <LockIcon style={{fontSize:"1.5rem",color:"#499d24",marginTop:"5.5px"}}/>
+                                            </div>
+                                        }
+
+                                        <div id="open-settings-wl-btn" onClick={()=> setShowSettings(true)}>
+                                            <MoreVertIcon style={{fontSize:"1.5rem",color:"#a3b9cd",marginTop:"5.5px"}}/>
+                                        </div>
+                                    </div>
+                                </div>
                                 }
                             </div>
                             
@@ -167,8 +168,8 @@ const WishlistProductsComponent = ( { userToken } ) => {
                             />}
 
                             {showDeleteVerification && <DeleteVerificationModal 
-                            deleteVerification={setShowDeleteVerification} 
-                            removeWishlist={removeWishlist}
+                                deleteVerification={setShowDeleteVerification} 
+                                removeWishlist={removeWishlist}
                             />}
 
                         </div>   
@@ -176,27 +177,28 @@ const WishlistProductsComponent = ( { userToken } ) => {
         
                         {addProductModal && <AddProductModal openModal={setAddProductModal} updateProducts={getProducts} userID={userToken}/>}
         
-                        <div className="wl-product-grid" style={{maxWidth:"80%",margin:"auto",display:"grid",gridGap:"10px",gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))"}}>
-                            <div className="wl-product-grid-add-btn" onClick={()=>setAddProductModal(true)} style={{minHeight:"270px",background:"white",borderRadius:"5px",position:"relative",transition:"0.2s ease-in",background:"linear-gradient(0deg, rgba(104,179,211,1) 0%, rgba(126,207,88,1) 100%)",display:"flex", flexDirection:"column",justifyContent:"center", alignItems:"center"}}>
-                                <div className="wl-product-grid-add-btn-content" style={{textAlign:"center",color:"white"}}>
+                        <div className="wl-product-grid-section">
+
+                            <div id="wl-add-product-btn" onClick={()=>setAddProductModal(true)}>
+                                <div className="wl-add-product-btn-content">
                                     <AddCircleIcon style={{fontSize:"60px"}}/>
                                     <p>Lägg till produkt</p>
                                 </div>
-                                
                             </div>
+
                             {products.map((prod, key)=> {
                                 return(
-                                    <div key={key} className="wl-product-card" style={{minHeight:"270px",background:"#fff",borderRadius:"5px",position:"relative",transition:"0.2s ease-in"}}>
-                                        <div className="wl-product-card-remove-btn">
+                                    <div key={key} className="wl-product-card">
+                                        <div id="remove-product-btn">
                                             <DeleteIcon style={{fontSize:"1.1rem"}} onClick={()=> removeProduct(prod.id)}/>
                                         </div>
                                         
                                         <a target="_blank" href={prod.link}>
                                             <div className='wl-product-card-content'>
-                                                <div className="wl-product-card-content-img" style={{height:"150px",paddingTop:"10px",display:"flex",alignItems:"center", justifyContent:"center",marginBottom:"8px"}}>
-                                                    <img style={{maxWidth:"150px",padding:"10px"}} src={prod.imglink} alt="" />
+                                                <div className="wl-product-card-img">
+                                                    <img style={{maxWidth:"150px",padding:"10px"}} src={prod.imglink} />
                                                 </div>
-                                                <div className="wl-product-card-content-info" style={{padding:"10px"}}>
+                                                <div className="wl-product-card-info">
                                                     <h3 style={{marginBottom:"10px"}}>{prod.name}</h3>
                                                     <p style={{display:"flex", alignItems:"center"}}><SellIcon />{prod.price} SEK</p>
                                                     <p style={{display:"flex", alignItems:"center"}}><StoreIcon /> {prod.store}</p>
@@ -204,18 +206,12 @@ const WishlistProductsComponent = ( { userToken } ) => {
                                             </div>
                                         </a>
                                     </div>
-                                    
                                 )
                             })}
-
-                        </div>
                     </div>
-                
-          )
-
-    }
-
-  
+                </div>
+            )
+    }   
 }
 
 export default WishlistProductsComponent

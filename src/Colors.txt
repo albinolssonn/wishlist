@@ -8,3 +8,10 @@ Background Colors:
     Light Green: rgb(204, 233, 203)
     Light Red: #f5a8a8
     Darker Blue: #accff9
+
+CTA Buttons:
+
+    Blue
+        Background: #5188AD
+        Hover Background: #64a3ce
+        Text Color: #fff

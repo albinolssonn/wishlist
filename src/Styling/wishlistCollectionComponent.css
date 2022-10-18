@@ -1,0 +1,59 @@
+.wishlist-collection-section {
+    position: relative;
+}
+
+.wl-top-bar {
+    background: #fff;
+    max-width: 80%;
+    margin: 10px auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.wl-top-bar-grid {
+    padding: 10px; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    position: relative; 
+}
+
+.wl-top-bar-title {
+    display: flex; 
+    align-items: center; 
+    justify-content: left; 
+}
+
+.wl-top-bar-buttons {
+    display: flex; 
+    align-items: center; 
+    justify-content: right; 
+    gap: 5px; 
+}
+
+.wl-collection-grid {
+    max-width: 80%;
+    margin: 10px auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.wl-grid-card {
+    height: 80px; 
+    padding: 10px; 
+    border-radius: 5px; 
+    position: relative; 
+    transition: 0.2s ease-in; 
+}
+
+.wl-grid-card:hover {
+    cursor: pointer;
+}
+
+.wl-grid-card-title {
+    margin-bottom: 30px; 
+    text-align: center; 
+}
+
+
