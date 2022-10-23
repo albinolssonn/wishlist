@@ -52,17 +52,22 @@
 /* WISHLIST COLLECTION BUTTONS */
 
 .add-wishlist-modal-btn{
-    width: 45px;
-    height: 45px;
-    margin-top: 4px;
-    text-align: center; 
-    border-radius: 50px;
+    background-color: rgb(204, 233, 203);
+    height:35px;
+    padding:0px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-align:center; 
+    border-radius:5px;
     transition: 0.2s ease-in;
 }
 
 .add-wishlist-modal-btn:hover{
-    background-color: rgb(204, 233, 203);
     cursor: pointer;
+    background-color: rgb(153, 224, 150);
+    transform: scale(1.03);
+
 }
 
 /* WISHLIST PRODUCTS BUTTONS */

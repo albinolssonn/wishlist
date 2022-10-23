@@ -11,8 +11,7 @@ const ChangeListNameModal = ({ getNewName,userID, openModal }) => {
   const { id } = useParams(); 
   const [wishList, setWishList] = useState(""); 
   const [newWLName,setNewWLName] = useState(""); 
-  const [wlColor,setWLColor] = useState(""); 
-
+  
   useEffect(() => {
     getWLColor();
   }, []); 

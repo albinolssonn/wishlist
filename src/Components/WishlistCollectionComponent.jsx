@@ -44,9 +44,10 @@ const WishlistCollectionComponent = () => {
                             <h1>Dina önskelistor</h1>
                         </div>
 
-                        <div className="wl-top-bar-buttons">
+                        <div className='wl-top-bar-buttons'>
                             <div className="add-wishlist-modal-btn" onClick={()=> setShowModal(true)}>
-                                <PlaylistAddIcon style={{fontSize:"2.1rem",color:"green",marginTop:"5.7px"}}/>
+                                <p>Add wishlist</p>
+                                <PlaylistAddIcon style={{fontSize:"1.5rem",color:"green",marginTop:"5.5px"}}/>
                             </div>
                         </div>
                     </div>

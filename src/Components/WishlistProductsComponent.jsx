@@ -119,19 +119,19 @@ const WishlistProductsComponent = ( { userToken } ) => {
     }
     else{
         return (
-                <div className='wishlist-product-section'>
+                <div className='product-collection-section'>
 
-                    <div className="wl-top-bar">
-                        <div className="wl-top-bar-container">
+                    <div className="pr-top-bar">
+                        <div className="pr-top-bar-container">
 
                             {nameToggle ? <ChangeListNameModal getNewName={getWishlist} userID={userToken} openModal={setNameToggle}/> : 
             
-                                <div className="wl-top-bar-content" style={{display:"flex",alignItems:"center"}}>
+                                <div className="pr-top-bar-content">
                                     <div className="wl-top-bar-title">
                                         <h1>{wishList.name}</h1>
                                     </div>
 
-                                    <div className="wl-top-bar-buttons">
+                                    <div className="pr-top-bar-buttons">
                                                 
                                         {wishList.shareable ? 
                                             <div className='secret-url-container'>
@@ -157,10 +157,9 @@ const WishlistProductsComponent = ( { userToken } ) => {
                                         </div>
                                     </div>
                                 </div>
-                                }
-                            </div>
-                            
-                            {showSettings && <WishListSettingsModal 
+                            }
+                        </div>
+                        {showSettings && <WishListSettingsModal 
                                 deleteVerification={setShowDeleteVerification} 
                                 showSettings={setShowSettings} 
                                 openNameChange={setNameToggle}
@@ -173,7 +172,7 @@ const WishlistProductsComponent = ( { userToken } ) => {
                             />}
 
                         </div>   
-
+                        
         
                         {addProductModal && <AddProductModal openModal={setAddProductModal} updateProducts={getProducts} userID={userToken}/>}
         
