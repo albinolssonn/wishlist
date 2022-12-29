@@ -1,372 +1,358 @@
 /* LOGIN & REGISTER BUTTONS */
 
 #loginBtn {
-    background-color: #f9cf88;
-    height: 41px;
-    width: 100%;
-    padding: 2px 5px;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    border-style: none; 
-    border-radius: 5px;
-    font-size: 0.95rem;
+  background-color: #f9cf88;
+  height: 41px;
+  width: 100%;
+  padding: 2px 5px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
 }
 
-#loginBtn:hover{
-    cursor:pointer; 
+#loginBtn:hover {
+  cursor: pointer;
 }
 
-#registerBtn{
-    background-color: #91f259;
-    height: 41px;
-    width: 100%;
-    padding: 2px 5px;
-    margin: auto;
-    margin-top: 5px;
-    border-style: none; 
-    border-radius: 5px;
-    font-size: 0.95rem;
+#registerBtn {
+  background-color: #91f259;
+  height: 41px;
+  width: 100%;
+  padding: 2px 5px;
+  margin: auto;
+  margin-top: 5px;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
 }
 
-#registerBtn:hover{
-    cursor:pointer; 
+#registerBtn:hover {
+  cursor: pointer;
 }
 
-#navigate-register-btn, #navigate-login-btn {
-    background-color: #5188AD;
-    color: #fff;
-    height: 40px;
-    padding: 10px;
-    border-radius: 5px;
-    border-style: none;
-    font-size: 0.95rem;
-    transition: 0.2s ease-in;
-} 
+#navigate-register-btn,
+#navigate-login-btn {
+  background-color: #5188ad;
+  color: #fff;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 0.95rem;
+  transition: 0.2s ease-in;
+}
 
-#navigate-register-btn:hover, #navigate-login-btn:hover {
-    background-color: #346789;
-    cursor: pointer;
-} 
+#navigate-register-btn:hover,
+#navigate-login-btn:hover {
+  background-color: #346789;
+  cursor: pointer;
+}
 
 /* WISHLIST COLLECTION BUTTONS */
 
-.add-wishlist-modal-btn{
-    background-color: rgb(204, 233, 203);
-    height:35px;
-    padding:0px 10px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-align:center; 
-    border-radius:5px;
-    transition: 0.2s ease-in;
+.add-wishlist-modal-btn {
+  background: rgb(204, 233, 203);
+  color: green;
+  height: 35px;
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
 }
 
-.add-wishlist-modal-btn:hover{
-    cursor: pointer;
-    background-color: rgb(153, 224, 150);
-    transform: scale(1.03);
-
+.add-wishlist-modal-btn:hover {
+  cursor: pointer;
+  background-color: rgb(98, 179, 60);
+  color: #fff;
 }
 
 /* WISHLIST PRODUCTS BUTTONS */
 
-#secret-url-btn-true, #secret-url-btn-false{
-    height:35px; 
-    padding:0px 10px; 
-    color: #474849; 
-    background: #fff;
-    margin-right: 5px;
-    display: flex;
-    align-items: center;
-    gap:3px;
-    border-style: none;
-    border-radius: 50px;
-    transition: 0.2s ease-in;
+#secret-url-btn-true,
+#secret-url-btn-false {
+  height: 35px;
+  padding: 0px 10px;
+  color: #474849;
+  background: #fff;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-style: none;
+  border-radius: 50px;
+  transition: 0.2s ease-in;
 }
 
-#secret-url-btn-false:hover{
-    cursor: pointer;
-    background: #accff9;
+#secret-url-btn-false:hover {
+  cursor: pointer;
+  background: #accff9;
 }
 
 #secret-url-btn-true:hover {
-    cursor: pointer;
-    background: rgb(204, 233, 203);
+  cursor: pointer;
+  background: rgb(204, 233, 203);
 }
 
-#share-wl-btn-false, #share-wl-btn-true, #open-settings-wl-btn {
-    width:35px;
-    height:35px;
-    text-align:center; 
-    border-radius:50px;
-    transition: 0.2s ease-in;
+#share-wl-btn-false,
+#share-wl-btn-true,
+#open-settings-wl-btn {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 50px;
+  transition: 0.2s ease-in;
 }
 
-#share-wl-btn-false:hover{
-    background-color: rgb(204, 233, 203);
-    cursor: pointer;
+#share-wl-btn-false:hover {
+  background-color: rgb(204, 233, 203);
+  cursor: pointer;
 }
 
-#share-wl-btn-true:hover{
-    background-color: #f5a8a8;
-    cursor: pointer;
+#share-wl-btn-true:hover {
+  background-color: #f5a8a8;
+  cursor: pointer;
 }
 
-#open-settings-wl-btn:hover{
-    background: #dff8f7;
-    cursor: pointer;
+#open-settings-wl-btn:hover {
+  background: #dff8f7;
+  cursor: pointer;
 }
 
 #wl-add-product-btn {
-    background: linear-gradient(0deg, rgba(104,179,211,1) 0%, rgba(126,207,88,1) 100%); 
-    min-height: 270px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    position: relative; 
-    border-radius: 5px; 
-    transition: 0.2s ease-in; 
+  background: linear-gradient(
+    0deg,
+    rgba(104, 179, 211, 1) 0%,
+    rgba(126, 207, 88, 1) 100%
+  );
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
 }
 
 #wl-add-product-btn:hover {
-    cursor: pointer; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .wl-add-product-btn-content {
-    color: white; 
-    text-align: center; 
+  color: white;
+  text-align: center;
 }
 
 #remove-product-btn {
-    position:absolute;
-    z-index:1; 
-    right:5px; 
-    top:5px; 
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  top: 5px;
 }
 
 /* SETTINGS MODAL BUTTONS */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.openModalBtn{
-    width:50px;
-    height:50px;
-    text-align:center; 
-    border-radius:50px;
-    position:absolute;
-    right:5px;
-    margin-top:4px;
-    transition: 0.2s ease-in;
+.openModalBtn {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50px;
+  position: absolute;
+  right: 5px;
+  margin-top: 4px;
+  transition: 0.2s ease-in;
 }
 
-.openModalBtn:hover{
-    background-color: rgb(204, 233, 203);
-    cursor: pointer;
+.openModalBtn:hover {
+  background-color: rgb(204, 233, 203);
+  cursor: pointer;
 }
 
 .editWLNameBtn {
-    width:35px;
-    height:35px;
-    text-align:center; 
-    border-radius:50px;
-    transition: 0.2s ease-in;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 50px;
+  transition: 0.2s ease-in;
 }
 
-.editWLNameBtn:hover{
-    background-color: #dff8f7;
-    cursor: pointer;
+.editWLNameBtn:hover {
+  background-color: #dff8f7;
+  cursor: pointer;
 }
 
-.closeModalBtn{
-    width: 24px;
-    height: 24px;
+.closeModalBtn {
+  width: 24px;
+  height: 24px;
 }
 
-#addWishListBtn{
-    width: 150px;
-    padding: 7px 0;
-    font-size: .95rem;
-    margin-left: 4px;
-    border-style: none;
-    border-radius: 5px;
-    background: rgb(204, 233, 203);
-    color: green;
-    transition: 0.2s ease-in;
+#addWishListBtn {
+  width: 150px;
+  padding: 7px 0;
+  font-size: 0.95rem;
+  margin-left: 4px;
+  border-style: none;
+  border-radius: 5px;
+  background: rgb(204, 233, 203);
+  color: green;
+  transition: 0.2s ease-in;
 }
 
-#addWishListBtn:hover{
-    background: rgb(98, 179, 60);
-    color: white;
-    cursor: pointer;
+#addWishListBtn:hover {
+  background: rgb(98, 179, 60);
+  color: white;
+  cursor: pointer;
 }
 
-#closeModalBtn{
-    width: 150px;
-    padding: 7px 0;
-    font-size: .95rem;
-    margin-right: 4px;
-    border-style: none;
-    border-radius: 5px;
-    background: rgb(233, 203, 203);
-    color: rgb(202, 84, 84);
-    transition: 0.2s ease-in;
+#closeModalBtn {
+  width: 150px;
+  padding: 7px 0;
+  font-size: 0.95rem;
+  margin-right: 4px;
+  border-style: none;
+  border-radius: 5px;
+  background: rgb(233, 203, 203);
+  color: rgb(202, 84, 84);
+  transition: 0.2s ease-in;
 }
 
-#closeModalBtn:hover{
-    background: rgb(202, 84, 84);
-    color: white;
-    cursor: pointer;
+#closeModalBtn:hover {
+  background: rgb(202, 84, 84);
+  color: white;
+  cursor: pointer;
 }
 
-#cbActive{
-    transform: scale(1.3);
+#cbActive {
+  transform: scale(1.3);
 }
 
-.colorRadioBtn:hover{
-    cursor: pointer;
-    transform:scale(1.1);
+.colorRadioBtn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
-.removeWishListBtn{
-    color: #1d1d1d;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    transition: 0.2s ease-in;
+.removeWishListBtn {
+  color: #1d1d1d;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  transition: 0.2s ease-in;
 }
 
-.removeWishListBtn:hover{
-    color: rgb(202, 84, 84);
-    cursor: pointer;
+.removeWishListBtn:hover {
+  color: rgb(202, 84, 84);
+  cursor: pointer;
 }
 
-
-
-#errorBtn{
-    width:150px; 
-    margin:10px auto; 
-    padding:5px 0;
-    display:flex; 
-    align-items:center; 
-    justify-content:center; 
-    background:none;    
-    color:#1d1d1d; 
-    font-size:1.1rem; 
-    border-radius:50px; 
-    border-style:none; 
-    transition: 0.2s ease-in;
+#errorBtn {
+  width: 150px;
+  margin: 10px auto;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: #1d1d1d;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  border-style: none;
+  transition: 0.2s ease-in;
 }
 
-#errorBtn:hover{
-    background:rgba(255, 255, 255, 0.285);    
-    cursor: pointer;    
+#errorBtn:hover {
+  background: rgba(255, 255, 255, 0.285);
+  cursor: pointer;
 }
 
-.closeNameChangeBtn{
-    color: #ff5353;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    transition: 0.2s ease-in;
+.closeNameChangeBtn {
+  color: #ff5353;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: 0.2s ease-in;
 }
 
-.closeNameChangeBtn:hover{
-    cursor: pointer;
-    background: #f5a8a8;
+.closeNameChangeBtn:hover {
+  cursor: pointer;
+  background: #f5a8a8;
 }
 
-.updateNameBtn{
-    color: #499d24;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    transition: 0.2s ease-in;
+.updateNameBtn {
+  color: #499d24;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: 0.2s ease-in;
 }
 
-.updateNameBtn:hover{
-    cursor: pointer;
-    background: rgb(204, 233, 203);
+.updateNameBtn:hover {
+  cursor: pointer;
+  background: rgb(204, 233, 203);
 }
 
-
-
-
-#reserve-btn{
-    z-index: 999; 
-    width:95%; 
-    padding:8px 10px; 
-    background:#f6b054;
-    color:white; 
-    font-size:1rem; 
-    border-radius:50px; 
-    border-style:none; 
-    transition: 0.2s ease-in; 
-    display:flex; 
-    align-items: center;
-    justify-content: center;
+#reserve-btn {
+  z-index: 999;
+  width: 95%;
+  padding: 8px 10px;
+  background: #f6b054;
+  color: white;
+  font-size: 1rem;
+  border-radius: 50px;
+  border-style: none;
+  transition: 0.2s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#purchase-btn{
-    z-index: 999;
-    width:95%;
-    padding:8px 10px; 
-    background:rgb(128, 217, 125); 
-    color:white; 
-    font-size:1rem; 
-    border-radius:50px; 
-    border-style:none;
-    transition: 0.2s ease-in; 
+#purchase-btn {
+  z-index: 999;
+  width: 95%;
+  padding: 8px 10px;
+  background: rgb(128, 217, 125);
+  color: white;
+  font-size: 1rem;
+  border-radius: 50px;
+  border-style: none;
+  transition: 0.2s ease-in;
 }
 
-#reserve-btn:hover{
-    background:#fec478d1;;
-    cursor: pointer;
+#reserve-btn:hover {
+  background: #fec478d1;
+  cursor: pointer;
 }
 
 #purchase-btn:hover {
-    background:rgb(180, 245, 178); 
-    cursor: pointer;
+  background: rgb(180, 245, 178);
+  cursor: pointer;
 }
 
-
-
 #convert-btn {
-    background:#5188AD; 
-    color: #fff;
-    padding:10px; 
-    font-weight: bold;
-    border-radius: 5px;
-    border-style: none;
-    transition: 0.2s ease-in;
-    display:flex; 
-    align-items: center;
+  background: #5188ad;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-style: none;
+  transition: 0.2s ease-in;
+  display: flex;
+  align-items: center;
 }
 
 #convert-btn:hover {
-    cursor: pointer;
-    background: #64a3ce;
+  cursor: pointer;
+  background: #64a3ce;
 }
-
