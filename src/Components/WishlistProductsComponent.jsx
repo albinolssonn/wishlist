@@ -28,8 +28,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 const WishlistProductsComponent = ({ userToken }) => {
   const navigate = useNavigate();
-  const user = auth.currentUser;
-  const { id } = useParams();
+  const { id, user } = useParams();
   const [wishList, setWishList] = useState("");
   const [products, setProducts] = useState([]);
   const [nameToggle, setNameToggle] = useState(false);
@@ -40,31 +39,20 @@ const WishlistProductsComponent = ({ userToken }) => {
   const [copyToggle, setCopyToggle] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      getWishlist();
-      getProducts();
-      setSecretUrl(`localhost:3000/u/${user.uid}/wl/${id}`);
-    } else {
-      setIsLoading(true);
-    }
-  }, [user]);
+    getWishlist();
+    getProducts();
+    setSecretUrl(`localhost:3000/u/${user}/wl/${id}`);
+  }, []);
 
   const getWishlist = async () => {
-    const wishListDocRef = doc(db, "users", user.uid, "wishlists", id);
+    const wishListDocRef = doc(db, "wishlists", id);
     const returnData = await getDoc(wishListDocRef).then((doc) => {
       setWishList(doc.data(), doc.id);
     });
   };
 
   const getProducts = async () => {
-    const productColRef = collection(
-      db,
-      "users",
-      user.uid,
-      "wishlists",
-      id,
-      "products"
-    );
+    const productColRef = collection(db, "wishlists", id, "products");
     setIsLoading(true);
     const data = await getDocs(productColRef);
     setIsLoading(false);
@@ -72,15 +60,8 @@ const WishlistProductsComponent = ({ userToken }) => {
   };
 
   const removeWishlist = async () => {
-    const wishListDocRef = doc(db, "users", user.uid, "wishlists", id);
-    const productColRef = collection(
-      db,
-      "users",
-      user.uid,
-      "wishlists",
-      id,
-      "products"
-    );
+    const wishListDocRef = doc(db, "wishlists", id);
+    const productColRef = collection(db, "wishlists", id, "products");
     setIsLoading(true);
     const querySnapshot = await getDocs(productColRef);
     querySnapshot.forEach((doc) => {
@@ -88,19 +69,11 @@ const WishlistProductsComponent = ({ userToken }) => {
     });
     await deleteDoc(wishListDocRef);
     setIsLoading(false);
-    navigate(`/profile/${userToken}`);
+    navigate(`/profile/${user}`);
   };
 
-  const removeProduct = async (prodId) => {
-    const productColRef = doc(
-      db,
-      "users",
-      user.uid,
-      "wishlists",
-      id,
-      "products",
-      prodId
-    );
+  const removeProduct = async (productId) => {
+    const productColRef = doc(db, "wishlists", id, "products", productId);
     setIsLoading(true);
     await deleteDoc(productColRef);
     setIsLoading(false);
@@ -108,7 +81,7 @@ const WishlistProductsComponent = ({ userToken }) => {
   };
 
   const shareWishlist = async () => {
-    const wishListDocRef = doc(db, "users", user.uid, "wishlists", id);
+    const wishListDocRef = doc(db, "wishlists", id);
     if (wishList.shareable == true) {
       await updateDoc(wishListDocRef, {
         shareable: false,
@@ -143,7 +116,7 @@ const WishlistProductsComponent = ({ userToken }) => {
             {nameToggle ? (
               <ChangeListNameModal
                 getNewName={getWishlist}
-                userID={userToken}
+                userID={user}
                 openModal={setNameToggle}
               />
             ) : (
@@ -227,7 +200,6 @@ const WishlistProductsComponent = ({ userToken }) => {
           <AddProductModal
             openModal={setAddProductModal}
             updateProducts={getProducts}
-            userID={userToken}
           />
         )}
 

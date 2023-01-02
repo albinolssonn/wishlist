@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import standardInput from "../Assets/StandardInput";
 import { auth, db } from "../Server/firebase-config";
 
-const AddProductModal = ({ openModal, userID, updateProducts }) => {
+const AddProductModal = ({ openModal, updateProducts }) => {
   const { id } = useParams();
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
@@ -15,14 +15,9 @@ const AddProductModal = ({ openModal, userID, updateProducts }) => {
   const [productImgLink, setproductImgLink] = useState(
     "https://st4.depositphotos.com/17828278/24401/v/600/depositphotos_244011872-stock-illustration-image-vector-symbol-missing-available.jpg"
   );
-  const [user, setUser] = useState({});
-
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
 
   const setNewProduct = async () => {
-    await addDoc(collection(db, "users", userID, "wishlists", id, "products"), {
+    await addDoc(collection(db, "wishlists", id, "products"), {
       name: productName,
       price: productPrice,
       store: productStore,

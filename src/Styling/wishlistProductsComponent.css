@@ -71,8 +71,10 @@
 }
 
 .wl-product-card-img {
-  height: 150px;
+  max-width: 170px;
+  max-height: 150px;
   padding-top: 10px;
+  margin: auto;
   margin-bottom: 8px;
   display: flex;
   align-items: center;

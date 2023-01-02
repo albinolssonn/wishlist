@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../Server/firebase-config";
+import { auth, db } from "../../../Server/firebase-config";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import "../Assets/ButtonStyle.css";
-import "../Styling/RegisterComponent.css";
+import "../../../Assets/ButtonStyle.css";
+import "../../../Styling/RegisterComponent.css";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";

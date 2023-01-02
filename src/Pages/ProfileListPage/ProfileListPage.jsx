@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import WishlistCollectionComponent from "../../Components/WishlistCollectionComponent";
 import VerticalNav from "../../Navigation/VerticalNav";
 import SignedInErrorPage from "../ErrorPages/SignedInErrorPage";
 import AdComponent from "../../Components/AdComponent";
+import WLCollectionComponent from "./Components/CollectionComponent";
+import WishlistCollectionComponent from "./Components/WishlistSectionComponent";
 
 const ProfileListPage = ({ userToken }) => {
   const { id } = useParams();

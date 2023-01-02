@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
 import "../Navigation/VerticalNav.css";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Server/firebase-config";
 
 const VerticalNav = ({ setGridSize }) => {
-  const user = auth.currentUser;
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [menuStatus, setMenuStatus] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
 
   const openMenuFunction = () => {
     setMenuStatus(true);
@@ -25,7 +31,7 @@ const VerticalNav = ({ setGridSize }) => {
     {
       title: "Önskelistor",
       icon: <PlaylistAddCheckIcon />,
-      link: `profile/${user.uid}`,
+      //link: `profile/${auth.currentUser.uid}`,
     },
   ];
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../Styling/signinComponent.css";
+import "../../../Styling/signinComponent.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Server/firebase-config";
+import { auth } from "../../../Server/firebase-config";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
 
