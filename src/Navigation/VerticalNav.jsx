@@ -31,7 +31,7 @@ const VerticalNav = ({ setGridSize }) => {
     {
       title: "Önskelistor",
       icon: <PlaylistAddCheckIcon />,
-      //link: `profile/${auth.currentUser.uid}`,
+      // link: `profile/${auth.currentUser.uid}`,
     },
   ];
 

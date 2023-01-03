@@ -19,9 +19,10 @@ function AddWishlistModal({ openModal, updateWishList }) {
 
   const addWishList = async () => {
     if ((newName != "") & (newColor != "")) {
-      await addDoc(collection(db, "users", id, "wishlists"), {
+      await addDoc(collection(db, "wishlists"), {
         name: newName,
         color: newColor,
+        owner: id,
       })
         .then(() => {
           openModal(false);
@@ -35,7 +36,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
     }
   };
 
-  const setButtonColorActive = (colorValue) => {
+  const setWishlistColor = (colorValue) => {
     if (colorValue == 1) {
       setColorBtn1("cbActive");
     } else {
@@ -89,10 +90,6 @@ function AddWishlistModal({ openModal, updateWishList }) {
           position: "relative",
         }}
       >
-        {/* <div className="closeModalBtnDiv" style={{textAlign:"right"}}>
-                <div className="closeModalBtn" ><CloseIcon /></div>
-            </div> */}
-
         <div
           className="wlTitleDiv"
           style={{ marginBottom: "10px", textAlign: "center" }}
@@ -129,7 +126,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
             <div
               className="colorRadioBtn"
               id={colorBtn1}
-              onClick={() => setNewColor("ff6e6e") & setButtonColorActive(1)}
+              onClick={() => setNewColor("ff6e6e") & setWishlistColor(1)}
               style={{
                 width: "20px",
                 height: "20px",
@@ -141,7 +138,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
             <div
               className="colorRadioBtn"
               id={colorBtn2}
-              onClick={() => setNewColor("ffce6e") & setButtonColorActive(2)}
+              onClick={() => setNewColor("ffce6e") & setWishlistColor(2)}
               style={{
                 width: "20px",
                 height: "20px",
@@ -153,7 +150,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
             <div
               className="colorRadioBtn"
               id={colorBtn3}
-              onClick={() => setNewColor("afff6e") & setButtonColorActive(3)}
+              onClick={() => setNewColor("afff6e") & setWishlistColor(3)}
               style={{
                 width: "20px",
                 height: "20px",
@@ -165,7 +162,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
             <div
               className="colorRadioBtn"
               id={colorBtn4}
-              onClick={() => setNewColor("b6fbfa") & setButtonColorActive(4)}
+              onClick={() => setNewColor("b6fbfa") & setWishlistColor(4)}
               style={{
                 width: "20px",
                 height: "20px",
@@ -177,7 +174,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
             <div
               className="colorRadioBtn"
               id={colorBtn5}
-              onClick={() => setNewColor("b492ff") & setButtonColorActive(5)}
+              onClick={() => setNewColor("b492ff") & setWishlistColor(5)}
               style={{
                 width: "20px",
                 height: "20px",
@@ -189,7 +186,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
             <div
               className="colorRadioBtn"
               id={colorBtn6}
-              onClick={() => setNewColor("ff92e6") & setButtonColorActive(6)}
+              onClick={() => setNewColor("ff92e6") & setWishlistColor(6)}
               style={{
                 width: "20px",
                 height: "20px",
