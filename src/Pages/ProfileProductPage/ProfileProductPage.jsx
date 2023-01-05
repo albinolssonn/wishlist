@@ -3,7 +3,7 @@ import WishlistProductsComponent from "../../Components/WishlistProductsComponen
 import VerticalNav from "../../Navigation/VerticalNav";
 import AdComponent from "../../Components/AdComponent";
 
-const ProfileProductPage = ({ loggedInUser }) => {
+const ProfileProductPage = ({ userToken }) => {
   const [menuToggle, setMenuToggle] = useState("60px 1fr");
 
   return (
@@ -17,11 +17,11 @@ const ProfileProductPage = ({ loggedInUser }) => {
         }}
       >
         <div className="navbar">
-          <VerticalNav setGridSize={setMenuToggle} />
+          <VerticalNav userId={userToken} setGridSize={setMenuToggle} />
         </div>
 
         <div className="mainContent">
-          <WishlistProductsComponent userToken={loggedInUser} />
+          <WishlistProductsComponent />
         </div>
       </div>
       <AdComponent />

@@ -10,6 +10,8 @@ const ProfileListPage = ({ userToken }) => {
   const { id } = useParams();
   const [menuToggle, setMenuToggle] = useState("60px 1fr");
 
+  console.log(userToken);
+
   if (id == userToken) {
     return (
       <>
@@ -22,7 +24,7 @@ const ProfileListPage = ({ userToken }) => {
           }}
         >
           <div className="navbar">
-            <VerticalNav setGridSize={setMenuToggle} />
+            <VerticalNav userId={userToken} setGridSize={setMenuToggle} />
           </div>
 
           <div className="mainContent">

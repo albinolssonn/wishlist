@@ -6,7 +6,7 @@ import "../Navigation/VerticalNav.css";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Server/firebase-config";
 
-const VerticalNav = ({ setGridSize }) => {
+const VerticalNav = ({ userId, setGridSize }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [menuStatus, setMenuStatus] = useState(false);
@@ -31,7 +31,7 @@ const VerticalNav = ({ setGridSize }) => {
     {
       title: "Önskelistor",
       icon: <PlaylistAddCheckIcon />,
-      // link: `profile/${auth.currentUser.uid}`,
+      link: `profile/${userId}`,
     },
   ];
 

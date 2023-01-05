@@ -28,7 +28,10 @@ function App() {
               path="/profile/:id"
               element={<ProfileListPage userToken={user.uid} />}
             />
-            <Route path="/u/:user/w/:id" element={<ProfileProductPage />} />
+            <Route
+              path="/u/:user/w/:id"
+              element={<ProfileProductPage userToken={user.uid} />}
+            />
             <Route path="*" element={<SignedInErrorPage />} />
             <Route path="/u/:user/wl/:id" element={<SharedListPage />} />
           </Routes>

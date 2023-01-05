@@ -22,7 +22,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import TopBarComponent from "../Pages/ProfileProductPage/Components/TopBarComponent";
 
-const WishlistProductsComponent = ({ userToken }) => {
+const WishlistProductsComponent = () => {
   const navigate = useNavigate();
   const { id, user } = useParams();
   const [products, setProducts] = useState([]);
