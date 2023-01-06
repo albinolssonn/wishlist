@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import VerticalNav from "../../Navigation/VerticalNav";
 import SignedInErrorPage from "../ErrorPages/SignedInErrorPage";
 import AdComponent from "../../Components/AdComponent";
-import WLCollectionComponent from "./Components/CollectionComponent";
-import WishlistCollectionComponent from "./Components/WishlistSectionComponent";
+import WishlistCollectionComponent from "./Components/WishlistCollectionComponent";
 
 const ProfileListPage = ({ userToken }) => {
   const { id } = useParams();

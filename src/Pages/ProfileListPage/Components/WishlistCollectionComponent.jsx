@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const CollectionComponent = ({ lists }) => {
+const WishlistCollectionComponent = ({ lists }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -25,4 +25,4 @@ const CollectionComponent = ({ lists }) => {
   );
 };
 
-export default CollectionComponent;
+export default WishlistCollectionComponent;

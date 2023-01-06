@@ -2,6 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import RLInput from "../Assets/StandardInput";
+import { getUsersWishlists } from "../Functions/GetFunctions";
 import { db } from "../Server/firebase-config";
 
 function AddWishlistModal({ openModal, updateWishList }) {
@@ -26,7 +27,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
       })
         .then(() => {
           openModal(false);
-          updateWishList();
+          getUsersWishlists();
         })
         .catch((error) => {
           console.error("Error writing document: ", error);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import WishlistProductsComponent from "../../Components/WishlistProductsComponent";
 import VerticalNav from "../../Navigation/VerticalNav";
 import AdComponent from "../../Components/AdComponent";
+import ProductSectionComponent from "./Components/ProductSectionComponent";
 
 const ProfileProductPage = ({ userToken }) => {
   const [menuToggle, setMenuToggle] = useState("60px 1fr");
@@ -21,7 +21,7 @@ const ProfileProductPage = ({ userToken }) => {
         </div>
 
         <div className="mainContent">
-          <WishlistProductsComponent />
+          <ProductSectionComponent />
         </div>
       </div>
       <AdComponent />
