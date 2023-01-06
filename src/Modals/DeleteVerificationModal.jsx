@@ -4,7 +4,10 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import "../Assets/DeleteModalStyle.css";
 
-const DeleteVerificationModal = ({ deleteVerification, removeWishlist }) => {
+const DeleteVerificationModal = ({
+  showDeleteVerification,
+  removeWishlist,
+}) => {
   return (
     <div className="wl-delete-modal">
       <div className="wl-delete-modal-container">
@@ -29,7 +32,7 @@ const DeleteVerificationModal = ({ deleteVerification, removeWishlist }) => {
         <div className="wl-delete-modal-buttons">
           <div
             className="wl-delete-modal-buttons-keep-btn"
-            onClick={() => deleteVerification(false)}
+            onClick={() => showDeleteVerification(false)}
           >
             <p>Behåll</p>
             <CloseIcon />

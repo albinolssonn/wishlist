@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 import { db } from "../../../Server/firebase-config";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
-const TopBarComponent = ({ updateWishlist, showDeleteVerification }) => {
+const TopBarComponent = ({ showDeleteVerification }) => {
   const { id, user } = useParams();
   const [nameToggle, setNameToggle] = useState(false);
   const [copyToggle, setCopyToggle] = useState(false);
@@ -53,19 +53,6 @@ const TopBarComponent = ({ updateWishlist, showDeleteVerification }) => {
       setCopyToggle(false);
     }, 3000);
   };
-
-  //   const removeWishlist = async () => { DENNA SKA LIGGA HÄR, MEN MYCKET ATT FIXA!
-  //     const wishListDocRef = doc(db, "wishlists", id);
-  //     const productColRef = collection(db, "wishlists", id, "products");
-  //     setIsLoading(true);
-  //     const querySnapshot = await getDocs(productColRef);
-  //     querySnapshot.forEach((doc) => {
-  //       removeProduct(doc.id);
-  //     });
-  //     await deleteDoc(wishListDocRef);
-  //     setIsLoading(false);
-  //     navigate(`/profile/${user}`);
-  //   };
 
   return (
     <div className="pr-top-bar">

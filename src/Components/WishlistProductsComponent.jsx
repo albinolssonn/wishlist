@@ -1,18 +1,9 @@
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  getDocs,
-  updateDoc,
-} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { db } from "../Server/firebase-config";
 import "../Styling/wishlistProductsComponent.css";
 
 import LoadingComponent from "./LoadingComponent";
-import DeleteVerificationModal from "../Modals/RemoveWishlistVerificationModal";
+import DeleteVerificationModal from "../Modals/DeleteVerificationModal";
 import AddProductModal from "../Modals/AddProductModal";
 
 import SellIcon from "@mui/icons-material/Sell";
@@ -21,6 +12,8 @@ import StoreIcon from "@mui/icons-material/Store";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import TopBarComponent from "../Pages/ProfileProductPage/Components/TopBarComponent";
+import { getProducts } from "../Functions/GetFunctions";
+import { removeProduct, removeWishlist } from "../Functions/RemoveFunctions";
 
 const WishlistProductsComponent = () => {
   const navigate = useNavigate();
@@ -31,39 +24,25 @@ const WishlistProductsComponent = () => {
   const [showDeleteVerification, setDeleteVerification] = useState(false);
 
   useEffect(() => {
-    getProducts();
+    getProducts(id, setProducts, setIsLoading);
   }, []);
 
-  const getProducts = async () => {
-    const productColRef = collection(db, "wishlists", id, "products");
-    setIsLoading(true);
-    const data = await getDocs(productColRef);
-    setIsLoading(false);
-    setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  const getProductsHandler = () => {
+    // Ska vara i productListComponent sen
+    getProducts(id, setProducts, setIsLoading);
   };
 
-  const removeWishlist = async () => {
-    const wishListDocRef = doc(db, "wishlists", id);
-    const productColRef = collection(db, "wishlists", id, "products");
-    setIsLoading(true);
-    const querySnapshot = await getDocs(productColRef);
-    querySnapshot.forEach((doc) => {
-      removeProduct(doc.id);
-    });
-    await deleteDoc(wishListDocRef);
-    setIsLoading(false);
+  const removeWishlistHandler = async () => {
+    // Ska vara i topBar sen
+    removeWishlist(id, setIsLoading);
     navigate(`/profile/${user}`);
   };
 
-  const removeProduct = async (productId) => {
-    const productColRef = doc(db, "wishlists", id, "products", productId);
-    setIsLoading(true);
-    await deleteDoc(productColRef);
-    setIsLoading(false);
-    getProducts();
+  const removeProductHandler = (productId) => {
+    // Ska vara i både productListComponent och topBar
+    removeProduct(productId, id, setIsLoading, setProducts);
+    getProducts(id, setProducts, setIsLoading);
   };
-
-  // OVAN FUNKTIONER SKA FLYTTAS ÖVER // ANVÄNDAS SOM PROPS I TOP BAR COMPONENT
 
   if (isLoading) {
     return (
@@ -74,12 +53,12 @@ const WishlistProductsComponent = () => {
   } else {
     return (
       <div className="product-collection-section">
-        <TopBarComponent />
+        <TopBarComponent showDeleteVerification={setDeleteVerification} />
 
         {addProductModal && (
           <AddProductModal
             openModal={setAddProductModal}
-            updateProducts={getProducts}
+            updateProducts={getProductsHandler}
           />
         )}
 
@@ -97,7 +76,7 @@ const WishlistProductsComponent = () => {
                 <div id="remove-product-btn">
                   <DeleteIcon
                     style={{ fontSize: "1.1rem" }}
-                    onClick={() => removeProduct(prod.id)}
+                    onClick={() => removeProductHandler(prod.id)}
                   />
                 </div>
 
@@ -129,7 +108,8 @@ const WishlistProductsComponent = () => {
         {showDeleteVerification && (
           <DeleteVerificationModal
             showDeleteVerification={setDeleteVerification}
-            removeWishlist={removeWishlist}
+            removeWishlist={removeWishlistHandler}
+            updateProducts={getProductsHandler}
           />
         )}
       </div>
