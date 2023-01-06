@@ -27,7 +27,7 @@ function AddWishlistModal({ openModal, updateWishList }) {
       })
         .then(() => {
           openModal(false);
-          getUsersWishlists();
+          updateWishList();
         })
         .catch((error) => {
           console.error("Error writing document: ", error);

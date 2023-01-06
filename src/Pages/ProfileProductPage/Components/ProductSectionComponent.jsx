@@ -12,7 +12,7 @@ import {
   removeProduct,
   removeWishlist,
 } from "../../../Functions/RemoveFunctions";
-import ProductGridComponent from "./ProductGridComponent";
+import ProductCollectionComponent from "./ProductCollectionComponent";
 
 const ProductSectionComponent = () => {
   const navigate = useNavigate();
@@ -31,10 +31,11 @@ const ProductSectionComponent = () => {
     getProducts(id, setProducts, setIsLoading);
   };
 
-  const removeWishlistHandler = async () => {
+  const removeWishlistHandler = () => {
     // Ska vara i topBar sen
     removeWishlist(id, setIsLoading);
     navigate(`/profile/${user}`);
+    getProducts(id, setProducts, setIsLoading);
   };
 
   const removeProductHandler = (productId) => {
@@ -61,7 +62,7 @@ const ProductSectionComponent = () => {
           />
         )}
 
-        <ProductGridComponent
+        <ProductCollectionComponent
           products={products}
           setAddProductModal={setAddProductModal}
           removeProductHandler={removeProductHandler}

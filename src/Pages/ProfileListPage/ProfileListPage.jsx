@@ -4,6 +4,7 @@ import VerticalNav from "../../Navigation/VerticalNav";
 import SignedInErrorPage from "../ErrorPages/SignedInErrorPage";
 import AdComponent from "../../Components/AdComponent";
 import WishlistCollectionComponent from "./Components/WishlistCollectionComponent";
+import WishlistSectionComponent from "./Components/WishlistSectionComponent";
 
 const ProfileListPage = ({ userToken }) => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const ProfileListPage = ({ userToken }) => {
           </div>
 
           <div className="mainContent">
-            <WishlistCollectionComponent />
+            <WishlistSectionComponent />
           </div>
         </div>
         <AdComponent />

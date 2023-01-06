@@ -14,6 +14,15 @@ const WishlistSectionComponent = () => {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    getUsersWishlists(id, setIsLoading, setWishlist);
+  }, []);
+
+  const getWishlistHandler = () => {
+    // Ska vara i productListComponent sen ?
+    getUsersWishlists(id, setIsLoading, setWishlist);
+  };
+
   if (isLoading) {
     return (
       <>
@@ -25,14 +34,17 @@ const WishlistSectionComponent = () => {
       <div className="wishlist-collection-section">
         <TopBarComponent showAddModal={setShowModal} />
 
-        <WishlistCollectionComponent lists={wishlists} />
-
         {showModal && (
           <AddWishListModal
-            updateWishList={getUsersWishlists}
+            updateWishList={getWishlistHandler}
             openModal={setShowModal}
           />
         )}
+
+        <WishlistCollectionComponent
+          setIsLoading={setIsLoading}
+          lists={wishlists}
+        />
       </div>
     );
   }

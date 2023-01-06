@@ -1,7 +1,7 @@
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../Server/firebase-config";
-import { getProducts } from "./GetFunctions";
+import { getProducts, getUsersWishlists } from "./GetFunctions";
 
 export const removeWishlist = async (id, setIsLoading) => {
   const wishListDocRef = doc(db, "wishlists", id);
@@ -13,6 +13,7 @@ export const removeWishlist = async (id, setIsLoading) => {
   });
   await deleteDoc(wishListDocRef);
   setIsLoading(false);
+  getUsersWishlists(id, setIsLoading, setWishlists);
 };
 
 export const removeProduct = async (
